@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 15</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        * {  
+            font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-color: #f2f2f2;
+        }
+        .slide {
+        height: 130%;
+        width: 450px;
+        position: absolute;
+        background-color: #fff;
+        transition: 0.5s ease;
+        transform: translateX(-450px);
+        }
+        .slide h1 {
+            color: #8000ff;
+            font-weight: 800;
+            text-align: center;
+            padding: 10px 0;
+            padding-right: 30px;
+            pointer-events: none;
+        }
+        .slide ul li {
+            list-style: none;
+        }
+        .slide ul li a {
+            color: #011a41;
+            font-weight: 500;
+            font-size: 20px;
+            padding: 5px 0;
+            display: block;
+            text-transform: capitalize;
+            text-decoration: none;
+            transition: 0.2s ease-out;
+            margin-left: 20px;
+            text-align: left;   
+        }
+        .slide ul li:hover a {
+            color: #fff;
+            background-color: #8000ff;
+        }
+        label input {
+            display: none;
+            visibility: hidden;
+        }
+        .toggle {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            top: 20px;
+            left: 15px;
+            z-index: 1;
+            cursor: pointer;
+            border-radius: 2px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .toggle .common {
+            position: absolute;
+            height: 2px;
+            width: 20px;
+            background-color: #8000ff;
+            border-radius: 50px;
+            transition: 0.3s ease;
+        }
+        .toggle .top-line {
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .toggle .middle-line {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .toggle .bottom-line {
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        label input:checked ~ .toggle .top-line {
+            left: 2px;
+            top: 14px;
+            width: 25px;
+            transform: rotate(45deg);
+        }
+        label input:checked ~ .toggle .bottom-line {
+            left: 2px;
+            top: 14px;
+            width: 25px;
+            transform: rotate(-45deg);
+        }
+        label input:checked ~ .toggle .middle-line {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        label input:checked ~ .slide{
+            transform: translateX(0);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* CSS */
+        .button-85 {
+            margin: 10px 5px;
+            font-size: 22px;
+            font-weight: 600;
+            padding: 0.6em 2em;
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 255);
+            background: #8000ff;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+        .button-85 a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .button-85 a:hover {
+            color: #000000;
+        }
+        .button-85:before {
+            content: "";
+            background: linear-gradient(
+            45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000
+            );
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing-button-85 20s linear infinite;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+        
+        @keyframes glowing-button-85 {
+            0% {
+            background-position: 0 0;
+            }
+            50% {
+            background-position: 400% 0;
+            }
+            100% {
+            background-position: 0 0;
+            }
+        }
+        
+        .button-85:after {
+            z-index: -1;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* background: rgb(126, 12, 136); */
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body style="background-color: #fbb2e4;">
+    <!-- Sidebar Navigation Menu With Toggle Bar -->
+    <div style="margin: -10px 0 0 -7px; padding: 0;">
+	<label>
+        <input type="checkbox">
+        <div class="toggle">
+            <span class="top-line common"></span>
+            <span class="middle-line common"></span>
+            <span class="bottom-line common"></span>
+        </div>
+
+        <div class="slide" style="margin: -17px 0 0 -42px;">
+            <h1>MENU</h1>
+            <ul style="margin-top: -24px;">
+				<li><a href="exer1.html"> Exercise 1 - HTML Basic </a></li>
+				<li><a href="exer2.html"> Exercise 2 - HTML Attributes</a></li>
+				<li><a href="exer3.html"> Exercise 3 - HTML Headings</a></li>
+				<li><a href="exer4.html"> Exercise 4 - HTML Styles</a></li>
+				<li><a href="exer5.html"> Exercise 5 - HTML Text Formatting</a></li>
+				<li><a href="exer6.html"> Exercise 6 - HTML CSS</a></li>
+				<li><a href="exer7.html"> Exercise 7  - HTML Tables</a></li>
+				<li><a href="exer8.html"> Exercise 8 - HTML Lists</a></li>
+				<li><a href="exer9.html"> Exercise 9 - HTML Block and inline</a></li>
+				<li><a href="exer10.html"> Exercise 10 - HTML Classes</a></li>
+				<li><a href="exer11.html"> Exercise 11 - HTML ID</a></li>
+				<li><a href="exer12.html"> Exercise 12 - HTML Layout</a></li>
+				<li><a href="exer13.html"> Exercise 13 - HTML Forms</a></li>
+				<li><a href="exer14.html"> Exercise 14 - HTML Form Elements</a></li>
+				<li><a href="exer15.html"> Exercise 15 - HTML Input Types</a></li>
+            </ul>
+        </div>
+    </label>
+    </div>
+
+    <div class="page" style="margin: 0; padding: 0">
+    <h1 style="text-align: center; font-weight:800; margin: 0;">EXERCISE 15 - HTML INPUT TYPES</h1>
+    <br>
+
+    <!-- 15.HTML Input Types Picture 1 -->
+    <h2>Text field</h2>
+    <p>The <strong>input type="text"</strong> defines a one-line text input field:</p>
+
+    <form action="/action_page.php">
+        <label for="fname">First name:</label><br>
+        <input type="text" name="fname" id="fname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" name="lname" id="lname"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>Note that the form itself is not visible.</p>
+    <p>Also note that the default width of a text field is 20 characters.</p>
+
+    <h2>Password fields</h2>
+
+    <p>The <strong>input type="password"</strong> defines a password field:</p>
+
+    <form action="/action_page.php">
+        <label for="username">Username</label><br>
+        <input type="text" name="username" id="username"><br>
+        <label for="pwd">Password</label><br>
+        <input type="password" name="pwd" id="pwd"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- 15.HTML Input Types Picture 2 -->
+    <p>The characters in a password field are masked (shown as asterisks or circles).</p>
+
+    <h2>Radio Button</h2>
+
+    <p>The <strong>input type="radio"</strong> defines a radio button:</p>
+
+    <p>Choose your favorite Web language:</p>
+    <form action="/action_page.php">
+        <input type="radio" name="fav_language" id="html" value="HTML">
+        <label for="html">HTML</label><br>
+        <input type="radio" name="fav_language" id="css" value="CSS">
+        <label for="css">CSS</label><br>
+        <input type="radio" name="fav_language" id="javascript" value="javascript">
+        <label for="javascript">JavaScript</label><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Checkboxes</h2>
+    <p>The <strong>input type="checkbox"</strong> defines a checkbox:</p>
+
+    <form action="/action_page.php">
+        <input type="checkbox" name="vehicle1" id="vehicle1" value="Bike">
+        <label for="vehicle1"> I have a bike</label><br>
+        <input type="checkbox" name="vehicle2" id="vehicle2" value="Car">
+        <label for="vehicle2"> I have a car</label><br>
+        <input type="checkbox" name="vehicle3" id="vehicle3" value="Boat">
+        <label for="vehicle3"> I have a boat</label><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- 15.HTML Input Types Picture 3 -->
+    <h2>Input Button</h2>
+
+    <input type="button" onclick="alert('Hello World!')" value="Click Me!">
+
+    <h2>Number Fields</h2>
+
+    <p>The <strong>input type="number"</strong> defines a numeric input field.</p>
+
+    <p>You can use the min and max attributes to add numeric restrictions in the input field:</p>
+
+    <form action="/action_page.php">
+        <label for="quantity">Quantity (between 1 and 5):</label>
+        <input type="number" name="quantity" id="quantity" min="1" max="5">
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Numeric Steps</h2>
+
+    <p>Depending on browser support: Fixed steps will apply in the field.</p>
+
+    <form action="/action_page.php">
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" id="quantity" min="0" max="100" step="10" value="30">
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Date Field</h2>
+
+    <p>The <strong>input type="date"</strong> is used for input fields that should contain a date.</p>
+
+    <form action="/action_page.php">
+        <label for="birthday">Birthday:</label>
+        <input type="date" name="birthday" id="birthday">
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- 15.HTML Input Types Picture 4 -->
+    <p><strong>Note:</strong> type="date" is not supported in Internet Explorer 11 or prior Safari 14.1.</p>
+
+    <h2>Date Field Restrictions</h2>
+
+    <p>Use the min and max attributes to add restrictions to dates:</p>
+
+    <form action="/action_page.php">
+        <label for="datemin">Enter a date after 2000-01-01:</label>
+        <input type="date" name="datemin" id="datemin" min="2000-01-02"><br><br>
+
+        <label for="datemax">Enter a date before 1980-01-01:</label>
+        <input type="date" name="datemax" id="datemax" max="1979-12-31"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <p><strong>Note:</strong> type="date" is not supported in Internet Explorer 11 or prior Safari 14.1</p>
+
+    <h2>Show a Color Pickers</h2>
+
+    <p>The <strong>input type="color"</strong> is used for input fields that should contain a color.</p>
+
+    <form action="/action_page.php">
+        <label for="favcolor">Select your favorite color:</label>
+        <input type="color" name="favcolor" id="favcolor" value="#ff0000">
+        <input type="submit" value="Submit">
+    </form>
+
+    <p><b>Note:</b> type="color" is not supported in Internet Explorer 11 or Safari 9.1 (or earlier).</p>
+
+    <h2>Range Fields</h2>
+
+    <p>Depending on browser support: The input type "range" can be displayed as a slider control.</p>
+
+    <!-- 15.HTML Input Types Picture 5 -->
+    <form action="/action_page.php" method="get">
+        <label for="vol">Volume (between 0 and 50):</label>
+        <input type="range" name="vol" id="vol" min="0" max="50">
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Month Field</h2>
+
+    <p>The <strong>input type="month"</strong> allows the user to select a month and year.</p>
+
+    <form action="/action_page.php">
+        <label for="bdaymonth">Birthday (month and year):</label>
+        <input type="month" name="bdaymonth" id="bdaymonth">
+        <input type="submit" value="Submit">
+    </form>
+
+    <p><strong>Note:</strong> type="month" is not supported in Firefox, Safari, or Internet Explorer 11.</p>
+
+    <h1>Display a Week Input Control</h1>
+
+    <p>The <strong>input type="week"</strong> allows the user to select a week and year.</p>
+
+    <p>If the browser supports it, a date picker pops up when entering the input field.</p>
+
+    <form action="/action_page.php">
+        <label for="week">Select a week:</label>
+        <input type="week" name="week" id="week">
+        <input type="submit" value="Submit">
+    </form>
+
+    <p><strong>Note:</strong> type="week" is not supported in Firefox, Safari or Internet Explorer 11.</p>
+
+    <!-- 15.HTML Input Types Picture 6 -->
+    <h1>Show a Time Input Control</h1>
+
+    <p>The <strong>input type="time"</strong> allows the user to select a time (no time zone):</p>
+
+    <p>If the browser support it, a time picker pops up when entering the input field.</p>
+
+    <form action="/action_page.php">
+        <label for="appt">Select a time:</label>
+        <input type="time" name="appt" id="appt">
+        <input type="submit" value="Submit">
+    </form>
+
+    <p><strong>Note:</strong> type="time" is not supported in Internet Explorer 11 or prior Safari 14.1.</p>
+
+    <p>Depending on browser support:<br>A date picker can pop-up when you enter the input field.</p>
+
+    <form action="/action_page.php">
+        Birthday (date and time):
+        <input type="datetime" name="bdaytime">
+        <input type="submit">
+    </form>
+
+    <p><b>Note:</b> type="datetime" is not supported in Chrome, Firefox, or Internet Explorer.</p>
+
+    <h2>Local Date Field</h2>
+
+    <p>The <strong>input type="datetime-local"</strong> specifies a date and time input field, with no time zone.</p>
+
+    <form action="/action_page.php">
+        <label for="birthdaytime">Birthday (date and time):</label>
+        <input type="datetime-local" name="birthdaytime" id="birthdaytime">
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- 15.HTML Input Types Picture 7 -->
+    <p><strong>Note:</strong> type="datetime-local" is not supported in Internet Explorer 11 or prior Safari 14.1.</p>
+
+    <h2>Email Field</h2>>
+
+    <p>The <strong>input type="email"</strong> is used for input fields that should contain an e-mail address:</p>
+
+    <form action="/action_page.php">
+        <label for="email">Enter your email:</label>
+        <input type="email" name="email" id="email">
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Search Field</h2>
+    <p>The <strong>input type="search"</strong> is used for search fields (behaves like a regular text field):</p>
+
+    <form action="/action_page.php">
+        <label for="search">Search Google:</label>
+        <input type="search" name="gsearch" id="gsearch">
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Telephone Field</h2>
+
+    <p>The <strong>input type="tel"</strong> is used for input fields that should contain a telephone number:</p>
+
+    <form action="/action_page.php">
+        <label for="phone">Enter a phone number:</label><br><br>
+        <input type="tel" name="phone" id="phone" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required><br><br>
+        <small>Format: 123-45-678</small><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- 15.HTML Input Types Picture 8 -->
+    <h1>Display a URL Input Field</h1>
+
+    <p>The <strong>input type="url"</strong> is used for input fields that should contain a URL address:</p>
+
+    <form action="/action_page.php">
+        <label for="homepage">Add your homepage:</label>
+        <input type="url" name="homepage" id="homepage">
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+
+    <br>
+
+    <div style="text-align: center
+    ;">
+    <button class="button-85" role="button" ><a href="exer14.html">Prev</a></button>
+    <button class="button-85" role="button" ><a href="exer15.html">Exercise 15</a></button>
+
+    </div>
+
+    <br><br><br>
+ 
+</body>
+</html>

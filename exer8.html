@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 8</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <style>
+        * {
+            font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-color: #f2f2f2;
+        }
+        .slide {
+        height: 130%;
+        width: 450px;
+        position: absolute;
+        background-color: #fff;
+        transition: 0.5s ease;
+        transform: translateX(-450px);
+        }
+        .slide h1 {
+            color: #8000ff;
+            font-weight: 800;
+            text-align: center;
+            padding: 10px 0;
+            padding-right: 30px;
+            pointer-events: none;
+        }
+        .slide ul li {
+            list-style: none;
+        }
+        .slide ul li a {
+            color: #011a41;
+            font-weight: 500;
+            font-size: 20px;
+            padding: 5px 0;
+            display: block;
+            text-transform: capitalize;
+            text-decoration: none;
+            transition: 0.2s ease-out;
+            margin-left: 20px;
+            text-align: left;   
+        }
+        .slide ul li:hover a {
+            color: #fff;
+            background-color: #8000ff;
+        }
+        input {
+            display: none;
+            visibility: hidden;
+        }
+        .toggle {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            top: 20px;
+            left: 15px;
+            z-index: 1;
+            cursor: pointer;
+            border-radius: 2px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .toggle .common {
+            position: absolute;
+            height: 2px;
+            width: 20px;
+            background-color: #8000ff;
+            border-radius: 50px;
+            transition: 0.3s ease;
+        }
+        .toggle .top-line {
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .toggle .middle-line {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .toggle .bottom-line {
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        input:checked ~ .toggle .top-line {
+            left: 2px;
+            top: 14px;
+            width: 25px;
+            transform: rotate(45deg);
+        }
+        input:checked ~ .toggle .bottom-line {
+            left: 2px;
+            top: 14px;
+            width: 25px;
+            transform: rotate(-45deg);
+        }
+        input:checked ~ .toggle .middle-line {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        input:checked ~ .slide{
+            transform: translateX(0);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .pic-5 ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+        }
+        .pic-5 li {
+            float: left;
+        }
+        .pic-5 li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+        }
+        .pic-5 li a:hover {
+            background-color: #111111;
+        }
+
+        /* CSS */
+        .button-85 {
+            margin: 10px 5px;
+            font-size: 22px;
+            font-weight: 600;
+            padding: 0.6em 2em;
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 255);
+            background: #8000ff;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+        .button-85 a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .button-85 a:hover {
+            color: #000000;
+        }
+        .button-85:before {
+            content: "";
+            background: linear-gradient(
+            45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000
+            );
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing-button-85 20s linear infinite;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+        
+        @keyframes glowing-button-85 {
+            0% {
+            background-position: 0 0;
+            }
+            50% {
+            background-position: 400% 0;
+            }
+            100% {
+            background-position: 0 0;
+            }
+        }
+        
+        .button-85:after {
+            z-index: -1;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* background: #222; */
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body style="background-color: #fba2e8;">
+    <!-- Sidebar Navigation Menu With Toggle Bar -->
+    <div style="margin: -10px 0 0 -7px; padding: 0;">
+	<label>
+        <div>
+        <input type="checkbox">
+        <div class="toggle">
+            <span class="top-line common"></span>
+            <span class="middle-line common"></span>
+            <span class="bottom-line common"></span>
+        </div>
+
+        <div class="slide" style="margin: -17px 0 0 -42px;">
+            <h1>MENU</h1>
+            <ul style="margin-top: -24px;">
+				<li><a href="exer1.html"> Exercise 1 - HTML Basic </a></li>
+				<li><a href="exer2.html"> Exercise 2 - HTML Attributes</a></li>
+				<li><a href="exer3.html"> Exercise 3 - HTML Headings</a></li>
+				<li><a href="exer4.html"> Exercise 4 - HTML Styles</a></li>
+				<li><a href="exer5.html"> Exercise 5 - HTML Text Formatting</a></li>
+				<li><a href="exer6.html"> Exercise 6 - HTML CSS</a></li>
+				<li><a href="exer7.html"> Exercise 7  - HTML Tables</a></li>
+				<li><a href="exer8.html"> Exercise 8 - HTML Lists</a></li>
+				<li><a href="exer9.html"> Exercise 9 - HTML Block and inline</a></li>
+				<li><a href="exer10.html"> Exercise 10 - HTML Classes</a></li>
+				<li><a href="exer11.html"> Exercise 11 - HTML ID</a></li>
+				<li><a href="exer12.html"> Exercise 12 - HTML Layout</a></li>
+				<li><a href="exer13.html"> Exercise 13 - HTML Forms</a></li>
+				<li><a href="exer14.html"> Exercise 14 - HTML Form Elements</a></li>
+				<li><a href="exer15.html"> Exercise 15 - HTML Input Types</a></li>
+            </ul>
+        </div>
+    </label>
+    </div>
+
+    <div class="page" style="margin: 0; padding: 0">
+    <h1 style="text-align: center; font-weight:800; margin: 0;">EXERCISE 8 - HTML LISTS</h1>
+    
+
+    <!-- 8.HTML Lists Piture 1 -->
+        <h2>An unordered HTML list</h2>
+        <ul>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>
+
+        <ul style="list-style-type: disc;">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>
+
+        <ul style="list-style-type: circle;">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>
+
+        <ul style="list-style-type: square;">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>
+
+    <!-- 8.HTML Lists Piture 2 -->
+    <ul style="list-style-type: none;">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+
+    <h2>Ordered List with Numbers</h2>
+
+    <ol type="1">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+
+    <ol type="A">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+
+    <ol type="a">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+
+    <ol type="I">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+
+    <!-- 8.HTML Lists Piture 3 -->
+    <ol type="i">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+
+    <h2>A Description List</h2>
+
+    <dl>
+        <dt>Coffee</dt>
+        <dd>- black hot drink</dd>
+        <dt>Milk</dt>
+        <dd>- white cold drink</dd>
+    </dl>
+
+    <h2>A Nested List</h2>
+    <p>Lists can be nested (list inside list):</p>
+
+    <ul>
+        <li>Coffee</li>
+        <li>Tea
+            <ul>
+                <li>Black tea</li>
+                <li>Green tea</li>
+            </ul>
+        </li>
+        <li>Milk</li>
+    </ul>
+
+    <!-- 8.HTML Lists Piture 4 -->
+    <h2>A Nested List</h2>
+
+    <ul>
+        <li>Coffee</li>
+        <li>Tea
+            <ul>
+                <li>Black tea</li>
+                <li>Green tea
+                    <ul>
+                        <li>China</li>
+                        <li>Africa</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Milk</li>
+    </ul>
+
+    <!-- 8.HTML Lists Piture 5 and 5.1 -->
+    <h2>Navigation Menu</h2>
+    <p>In this example, we use CSS to style the list horizontally, to create a navigation menu:</p>
+
+    <div class="pic-5">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </div>
+    </div>
+
+    <br>
+
+	<div style="text-align: center
+	;">
+	<button class="button-85" role="button" ><a href="exer7.html">Prev</a></button>
+	<button class="button-85" role="button" ><a href="exer8.html">Exercise 8</a></button>
+	<button class="button-85" role="button" ><a href="exer9.html">Next</a></button>
+	</div>
+
+	<br><br><br>
+
+
+</body>
+</html>

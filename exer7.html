@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 7</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .pic-2 table, th, td {
+            border: 1px solid black;
+        }
+        .pic-3 table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .pic-4 table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .pic-4 th, td {
+            padding: 15px;
+        }
+        .pic-5 table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .pic-5 th, td {
+            padding: 5px;
+        }
+        .pic-6 table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .pic-6 th, td {
+            padding: 5px;
+        }
+        .pic-6 th {
+            text-align: left;
+        }
+        .pic-7-1 table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .pic-7-1 th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        .pic-7-2 #t01 {
+            width: 100%;
+            background-color: #f1f1c1;
+        }
+    </style>
+</head>
+
+<body style="background-color: #fcadad;">
+    <!-- Sidebar Navigation Menu With Toggle Bar -->
+	<label>
+        <input type="checkbox">
+        <div class="toggle">
+            <span class="top-line common"></span>
+            <span class="middle-line common"></span>
+            <span class="bottom-line common"></span>
+        </div>
+
+        <div class="slide">
+            <h1>MENU</h1>
+            <ul>
+				<li><a href="exer1.html"> Exercise 1 - HTML Basic </a></li>
+				<li><a href="exer2.html"> Exercise 2 - HTML Attributes</a></li>
+				<li><a href="exer3.html"> Exercise 3 - HTML Headings</a></li>
+				<li><a href="exer4.html"> Exercise 4 - HTML Styles</a></li>
+				<li><a href="exer5.html"> Exercise 5 - HTML Text Formatting</a></li>
+				<li><a href="exer6.html"> Exercise 6 - HTML CSS</a></li>
+				<li><a href="exer7.html"> Exercise 7  - HTML Tables</a></li>
+				<li><a href="exer8.html"> Exercise 8 - HTML Lists</a></li>
+				<li><a href="exer9.html"> Exercise 9 - HTML Block and inline</a></li>
+				<li><a href="exer10.html"> Exercise 10 - HTML Classes</a></li>
+				<li><a href="exer11.html"> Exercise 11 - HTML ID</a></li>
+				<li><a href="exer12.html"> Exercise 12 - HTML Layout</a></li>
+				<li><a href="exer13.html"> Exercise 13 - HTML Forms</a></li>
+				<li><a href="exer14.html"> Exercise 14 - HTML Form Elements</a></li>
+				<li><a href="exer15.html"> Exercise 15 - HTML Input Types</a></li>
+            </ul>
+        </div>
+    </label>
+
+    <h1 style="text-align: center; font-weight:800">EXERCISE 7 - HTML TABLES</h1>
+    <br>
+
+    <!-- 7.HTML Tables Picture 1 -->
+    <h2 style="margin-top: 90px;">HTML Tables</h2>
+
+    <p>HTML tables start with a table tag.</p>
+    <p>Table rows start with a tr tag.</p>
+    <p>Table data start with a td tag.</p>
+
+    <hr>
+    <h2>1 Column:</h2>
+
+    <table>
+        <tr>
+            <td>100</td>
+        </tr>
+    </table>
+
+    <hr>
+    <h2>1 Row and 3 Columns:</h2>
+    <table>
+        <tr>
+            <td>100</td>
+            <td>200</td>
+            <td>300</td>
+        </tr>
+    </table>
+
+    <!-- 7.HTML Tables Picture 1-1 -->
+    <hr>
+    <h2>3 Rows and 3 Columns:</h2>
+    <table>
+        <tr>
+            <td>100</td>
+            <td>200</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>500</td>
+            <td>600</td>
+        </tr>
+        <tr>
+            <td>700</td>
+            <td>800</td>
+            <td>900</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <!-- 7.HTML Tables Picture 2 -->
+    <h2>Table With Border</h2>
+
+    <p>Use the CSS border property to add a border to the table.</p>
+
+    <div class="pic-2">
+        <table style="width: 100%;">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>80</td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- 7.HTML Tables Picture 3 -->
+    <h2>Collapsed Borders</h2>
+    <p>If you want the borders to collapse into one border, add the CSS border-collapse property.</p>
+
+    <div class="pic-3">
+        <table style="width: 100%;">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>80</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- 7.HTML Tables Picture 4 -->
+    <h2>Cellpadding</h2>
+    <p>Cell padding specifies the space between the cell content and its borders.</p>
+
+    <div class="pic-4">
+        <table style="width: 100%;">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>80</td>
+            </tr>
+        </table>
+
+        <p><strong>Tip:</strong> Try to change the padding to 5px.</p>
+    </div>
+
+    <!-- 7.HTML Tables Picture 5 -->
+    <div class="pic-5">
+        <table style="width: 100%;">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>80</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- 7.HTML Tables Picture 6 -->
+    <h2>Left-align Headings</h2>
+    <p>To left-align the table headings, use the CSS text-align property.</p>
+
+    <div class="pic-6">
+        <table style="width: 100%;">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>80</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- 7.HTML Tables Picture 7.1 -->
+    <h2>Styling Tables</h2>
+
+    <div class="pic-7-1">
+        <table style="width: 100%;">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>80</td>
+            </tr>
+        </table>
+    </div>
+    <br>
+
+    <div class="pic-7-2">
+        <table id="t01">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>80</td>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+
+	<div style="text-align: center
+	;">
+	<button class="button-85" role="button" ><a href="exer6.html">Prev</a></button>
+	<button class="button-85" role="button" ><a href="exer7.html">Exercise 7</a></button>
+	<button class="button-85" role="button" ><a href="exer8.html">Next</a></button>
+	</div>
+
+	<br><br><br>
+    
+</body>
+</html>

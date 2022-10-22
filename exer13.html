@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 13</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        * {  
+            font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-color: #f2f2f2;
+        }
+        .slide {
+        height: 130%;
+        width: 450px;
+        position: absolute;
+        background-color: #fff;
+        transition: 0.5s ease;
+        transform: translateX(-450px);
+        }
+        .slide h1 {
+            color: #8000ff;
+            font-weight: 800;
+            text-align: center;
+            padding: 10px 0;
+            padding-right: 30px;
+            pointer-events: none;
+        }
+        .slide ul li {
+            list-style: none;
+        }
+        .slide ul li a {
+            color: #011a41;
+            font-weight: 500;
+            font-size: 20px;
+            padding: 5px 0;
+            display: block;
+            text-transform: capitalize;
+            text-decoration: none;
+            transition: 0.2s ease-out;
+            margin-left: 20px;
+            text-align: left;   
+        }
+        .slide ul li:hover a {
+            color: #fff;
+            background-color: #8000ff;
+        }
+        label input {
+            display: none;
+            visibility: hidden;
+        }
+        .toggle {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            top: 20px;
+            left: 15px;
+            z-index: 1;
+            cursor: pointer;
+            border-radius: 2px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .toggle .common {
+            position: absolute;
+            height: 2px;
+            width: 20px;
+            background-color: #8000ff;
+            border-radius: 50px;
+            transition: 0.3s ease;
+        }
+        .toggle .top-line {
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .toggle .middle-line {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .toggle .bottom-line {
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        label input:checked ~ .toggle .top-line {
+            left: 2px;
+            top: 14px;
+            width: 25px;
+            transform: rotate(45deg);
+        }
+        label input:checked ~ .toggle .bottom-line {
+            left: 2px;
+            top: 14px;
+            width: 25px;
+            transform: rotate(-45deg);
+        }
+        label input:checked ~ .toggle .middle-line {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        label input:checked ~ .slide{
+            transform: translateX(0);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* CSS */
+        .button-85 {
+            margin: 10px 5px;
+            font-size: 22px;
+            font-weight: 600;
+            padding: 0.6em 2em;
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 255);
+            background: #8000ff;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+        .button-85 a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .button-85 a:hover {
+            color: #000000;
+        }
+        .button-85:before {
+            content: "";
+            background: linear-gradient(
+            45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000
+            );
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing-button-85 20s linear infinite;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+        
+        @keyframes glowing-button-85 {
+            0% {
+            background-position: 0 0;
+            }
+            50% {
+            background-position: 400% 0;
+            }
+            100% {
+            background-position: 0 0;
+            }
+        }
+        
+        .button-85:after {
+            z-index: -1;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* background: #222; */
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body style="background-color: #aca7f7;">
+    <!-- Sidebar Navigation Menu With Toggle Bar -->
+    <div style="margin: -10px 0 0 -7px; padding: 0;">
+	<label>
+        <input type="checkbox">
+        <div class="toggle">
+            <span class="top-line common"></span>
+            <span class="middle-line common"></span>
+            <span class="bottom-line common"></span>
+        </div>
+
+        <div class="slide" style="margin: -17px 0 0 -42px;">
+            <h1>MENU</h1>
+            <ul>
+				<li style="margin-top: -24px;"><a href="exer1.html"> Exercise 1 - HTML Basic </a></li>
+				<li><a href="exer2.html"> Exercise 2 - HTML Attributes</a></li>
+				<li><a href="exer3.html"> Exercise 3 - HTML Headings</a></li>
+				<li><a href="exer4.html"> Exercise 4 - HTML Styles</a></li>
+				<li><a href="exer5.html"> Exercise 5 - HTML Text Formatting</a></li>
+				<li><a href="exer6.html"> Exercise 6 - HTML CSS</a></li>
+				<li><a href="exer7.html"> Exercise 7  - HTML Tables</a></li>
+				<li><a href="exer8.html"> Exercise 8 - HTML Lists</a></li>
+				<li><a href="exer9.html"> Exercise 9 - HTML Block and inline</a></li>
+				<li><a href="exer10.html"> Exercise 10 - HTML Classes</a></li>
+				<li><a href="exer11.html"> Exercise 11 - HTML ID</a></li>
+				<li><a href="exer12.html"> Exercise 12 - HTML Layout</a></li>
+				<li><a href="exer13.html"> Exercise 13 - HTML Forms</a></li>
+				<li><a href="exer14.html"> Exercise 14 - HTML Form Elements</a></li>
+				<li><a href="exer15.html"> Exercise 15 - HTML Input Types</a></li>
+            </ul>
+        </div>
+    </label>
+    </div>
+
+    <div class="page" style="margin: 0; padding: 0">
+    <h1 style="text-align: center; font-weight:800; margin: 0;">EXERCISE 13 - HTML FORMS</h1>
+    <br>
+
+    <!-- 13.HTML Forms Picture 1 -->
+    <h2>Text input fields</h2>
+
+    <form>
+        <label for="fname">First name:</label><br>
+        <input type="text" name="fname" id="fname" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" name="lname" id="lname" value="Doe">
+    </form>
+
+    <p>Note that the form itself is not visible.</p>
+
+    <p>Also note that the default width of text input fields is 20 characters.</p>
+
+    <h2>Radio Buttons</h2>
+
+    <p>Choose your favorite Web language:</p>
+
+    <form>
+        <input type="radio" name="fav_language" id="html" value="HTML">
+        <label for="html">HTML</label><br>
+        <input type="radio" name="fav_language" id="css" value="CSS">
+        <label for="css">CSS</label><br>
+        <input type="radio" name="fav_language" id="javascript" value="javascript">
+        <label for="javascript">JavaScript</label>
+    </form>
+
+
+    <!-- 13.HTML Forms Picture 2 -->
+    <h2>HTML Forms</h2>
+
+    <form action="/action_page.php">
+        <label for="fname">First name:</label><br>
+        <input type="text" name="fname" id="fname" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" name="lname" id="lname" value="Doe"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+    <h2>The name Attribute</h2>
+
+    <form action="/action_page.php">
+        <label for="fname">First name:</label><br>
+        <input type="text" name="fname" id="fname" value="John"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+    <p>Notice that the value of the "First name" field will not be submitted, because the input element does not have a name attribute.</p>
+
+    <h2>Grouping Form Data with Fieldset</h2>
+
+    <p>The fieldset element is used to group related data in a form, and the legend element defines a caption for the fieldset element.</p>
+
+    <!-- 13.HTML Forms Picture 3 -->
+    <form action="/action_page.php">
+        <fieldset>
+            <legend>Personalia:</legend>
+            <label for="fname">First name:</label><br>
+            <input type="text" name="fname" id="fname" value="John"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" name="lname" id="lname" value="Doe"><br><br>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+    </div>
+
+    <br>
+
+    <div style="text-align: center
+    ;">
+    <button class="button-85" role="button" ><a href="exer12.html">Prev</a></button>
+    <button class="button-85" role="button" ><a href="exer13.html">Exercise 13</a></button>
+    <button class="button-85" role="button" ><a href="exer14.html">Next</a></button>
+    </div>
+
+    <br><br><br>
+
+</body>
+</html>
